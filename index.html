@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REINA Phase 2 — Interview Prep Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FAFAF8;--card:#fff;--text:#1a1a1a;--text2:#4a4a4a;--text3:#7a7a7a;
+  --border:#e5e5e0;--accent:#1a3c5e;--accent2:#2563eb;--accent-light:#EFF6FF;
+  --amber:#D97706;--amber-bg:#FFFBEB;--amber-text:#92400E;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-text:#991B1B;
+  --green:#059669;--green-bg:#ECFDF5;--green-text:#065F46;
+  --purple:#7C3AED;--purple-bg:#F5F3FF;--purple-text:#5B21B6;
+  --font-body:'DM Sans',sans-serif;--font-serif:'Source Serif 4',serif;--font-mono:'JetBrains Mono',monospace;
+  --shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg:0 4px 12px rgba(0,0,0,0.08),0 2px 4px rgba(0,0,0,0.04);
+}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto;padding:24px 20px 80px}
+
+/* Header */
+.header{text-align:center;padding:48px 0 36px;border-bottom:1px solid var(--border);margin-bottom:36px}
+.header h1{font-family:var(--font-serif);font-size:28px;font-weight:600;color:var(--accent);margin-bottom:6px}
+.header .sub{font-size:14px;color:var(--text3);margin-bottom:16px}
+.header .purpose{font-size:14px;color:var(--text2);max-width:560px;margin:0 auto;line-height:1.7;background:var(--accent-light);border-radius:8px;padding:14px 20px;text-align:left}
+
+/* Navigation */
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:32px;position:sticky;top:0;background:var(--bg);padding:12px 0;z-index:10;border-bottom:1px solid var(--border)}
+.nav-btn{font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 12px;border-radius:6px;border:1px solid var(--border);background:var(--card);color:var(--text2);cursor:pointer;transition:all .15s}
+.nav-btn:hover{border-color:var(--accent);color:var(--accent)}
+.nav-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.nav-btn .new-tag{font-size:9px;background:var(--red);color:#fff;padding:1px 4px;border-radius:3px;margin-left:4px;vertical-align:middle}
+
+/* Domain sections */
+.domain{display:none;animation:fadeIn .3s ease}
+.domain.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.domain-header{margin-bottom:24px}
+.domain-header h2{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--accent);margin-bottom:4px}
+.domain-header .status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:4px;margin-top:6px}
+.status-green{background:var(--green-bg);color:var(--green-text)}
+.status-amber{background:var(--amber-bg);color:var(--amber-text)}
+.status-red{background:var(--red-bg);color:var(--red-text)}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card h3 .icon{font-size:16px}
+.card p,.card li{font-size:13.5px;color:var(--text2);line-height:1.7}
+.card ul{padding-left:18px}
+.card li{margin-bottom:6px}
+
+/* Concept cards — the "what you need to know" */
+.concept{border-left:3px solid var(--accent2);background:var(--accent-light)}
+.concept h3{color:var(--accent2)}
+
+/* Numbers to know */
+.numbers{border-left:3px solid var(--green);background:var(--green-bg)}
+.numbers h3{color:var(--green-text)}
+.num-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.num-item{background:rgba(255,255,255,0.7);border-radius:6px;padding:10px 12px}
+.num-item .val{font-family:var(--font-mono);font-size:16px;font-weight:600;color:var(--green-text)}
+.num-item .label{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* Trials to know */
+.trials{border-left:3px solid var(--purple);background:var(--purple-bg)}
+.trials h3{color:var(--purple-text)}
+.trial-item{background:rgba(255,255,255,0.6);border-radius:6px;padding:10px 12px;margin-top:8px}
+.trial-item .name{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--purple-text)}
+.trial-item .detail{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.6}
+.trial-item .takeaway{font-size:12px;font-weight:600;color:var(--accent);margin-top:4px}
+
+/* Listen-for boxes */
+.listen{border-left:3px solid var(--amber);background:var(--amber-bg)}
+.listen h3{color:var(--amber-text)}
+.listen-item{display:flex;gap:8px;margin-bottom:8px;font-size:13px}
+.listen-item .ear{flex-shrink:0;font-size:14px;line-height:1.7}
+.listen-item .phrase{font-family:var(--font-mono);font-size:12px;color:var(--amber-text);background:rgba(255,255,255,0.5);padding:1px 6px;border-radius:3px}
+
+/* Danger zone — common misunderstandings */
+.danger{border-left:3px solid var(--red);background:var(--red-bg)}
+.danger h3{color:var(--red-text)}
+
+/* Expandable sections */
+.expand-trigger{cursor:pointer;user-select:none;display:flex;justify-content:space-between;align-items:center}
+.expand-trigger::after{content:'+';font-size:18px;font-weight:300;color:var(--text3);transition:transform .2s}
+.expand-trigger.open::after{transform:rotate(45deg)}
+.expand-content{display:none;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,0.06)}
+.expand-content.open{display:block}
+
+/* Physical concepts — visual explainers */
+.visual-row{display:flex;gap:12px;margin:12px 0}
+.visual-box{flex:1;background:rgba(255,255,255,0.7);border-radius:8px;padding:12px;text-align:center;border:1px solid rgba(0,0,0,0.05)}
+.visual-box .mode{font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--accent)}
+.visual-box .mech{font-size:11px;color:var(--text3);margin-top:2px}
+.visual-box .arrow{font-size:20px;margin:6px 0;color:var(--accent2)}
+.visual-box .best{font-size:11px;color:var(--text2);margin-top:4px;font-weight:500}
+
+/* Quick reference */
+.qr{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:16px;font-size:12px;color:var(--text2)}
+.qr-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text3);margin-bottom:8px}
+.qr-grid{display:grid;grid-template-columns:140px 1fr;gap:4px 12px}
+.qr-grid dt{font-weight:600;color:var(--text)}
+.qr-grid dd{color:var(--text2)}
+
+/* Responsive */
+@media(max-width:600px){
+  .num-grid{grid-template-columns:1fr}
+  .visual-row{flex-direction:column}
+  .nav-btn{font-size:11px;padding:5px 8px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>CRRT Knowledge Prep Guide</h1>
+  <div class="sub">Before your Phase 2 consultant interviews</div>
+  <div class="purpose">
+    <strong>What this is:</strong> The concepts, numbers, trial names, and vocabulary you need so that when a consultant explains their reasoning, you can follow it, recognise when they say something important, and ask the right follow-up. You don't need to memorise everything — focus on understanding the <em>why</em> behind each concept.
+  </div>
+</div>
+
+<div class="nav" id="nav"></div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 0: FOUNDATIONS -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d0">
+<div class="domain-header">
+  <h2>Foundations — how CRRT actually works</h2>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> The CRRT machine in 60 seconds</h3>
+  <p>Blood is pulled from the patient through a catheter (usually internal jugular or femoral vein), pumped through a <strong>filter</strong> (haemofilter/dialyser), and returned. While in the filter, waste products and excess fluid are removed. The machine runs <strong>continuously</strong> (24 hours/day) — unlike regular dialysis which is done in 3–4 hour sessions. This gentleness is why CRRT is used for haemodynamically unstable ICU patients.</p>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">⚡</span> The two clearance mechanisms</h3>
+  <p>Every CRRT decision traces back to these two physics principles. Understand these and you understand modality selection.</p>
+  <div class="visual-row">
+    <div class="visual-box">
+      <div class="mode">DIFFUSION</div>
+      <div class="mech">Concentration gradient</div>
+      <div class="arrow">⬇</div>
+      <div>Solutes move from high concentration (blood) to low concentration (dialysate) across the membrane</div>
+      <div class="best">Best for: small molecules<br>(K⁺, Na⁺, urea, creatinine)</div>
+    </div>
+    <div class="visual-box">
+      <div class="mode">CONVECTION</div>
+      <div class="mech">Pressure gradient</div>
+      <div class="arrow">⬇</div>
+      <div>Water is pushed through the membrane by pressure, dragging solutes with it ("solvent drag")</div>
+      <div class="best">Best for: medium molecules<br>(cytokines, myoglobin ~17 kDa)</div>
+    </div>
+  </div>
+  <p style="margin-top:10px;font-size:12px;color:var(--text3)"><strong>Third mechanism — ADSORPTION:</strong> Some molecules stick to the filter membrane itself. This is how Oxiris removes endotoxins. Not a modality choice — it's a filter choice.</p>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">☕</span> The four modalities</h3>
+  <p>Think of these as different coffee brewing methods — each uses a different combination of the mechanisms above.</p>
+  <div class="visual-row">
+    <div class="visual-box">
+      <div class="mode">CVVH</div>
+      <div class="mech">Convection only</div>
+      <div class="best">Replacement fluid in, ultrafiltrate out. No dialysate. Like a French press.</div>
+    </div>
+    <div class="visual-box">
+      <div class="mode">CVVHD</div>
+      <div class="mech">Diffusion only</div>
+      <div class="best">Dialysate flows past the membrane. No replacement fluid. Like pour-over.</div>
+    </div>
+    <div class="visual-box">
+      <div class="mode">CVVHDF</div>
+      <div class="mech">Both</div>
+      <div class="best">Dialysate AND replacement fluid. Most versatile. The default.</div>
+    </div>
+    <div class="visual-box">
+      <div class="mode">SCUF</div>
+      <div class="mech">UF only</div>
+      <div class="best">Pure fluid removal. No clearance. For volume overload alone.</div>
+    </div>
+  </div>
+</div>
+
+<div class="card concept">
+  <h3 class="expand-trigger" onclick="toggle(this)"><span><span class="icon">💧</span> Key fluids you'll hear about</span></h3>
+  <div class="expand-content">
+    <ul>
+      <li><strong>Regiocit</strong> — Citrate solution infused pre-filter. The citrate binds calcium in the blood, preventing clotting in the circuit. The machine controls the dose. Only used with citrate anticoagulation.</li>
+      <li><strong>Biphozyl</strong> — Bicarbonate-based replacement/dialysate fluid used with citrate protocols. Contains phosphate (important because CRRT strips phosphate).</li>
+      <li><strong>Prismasol</strong> — Standard bicarbonate-based replacement/dialysate fluid used with heparin or no-anticoagulation protocols.</li>
+      <li><strong>Calcium gluconate</strong> — Infused back into the patient after the filter to replace the calcium that citrate chelated. Without this, the patient becomes hypocalcaemic.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card concept">
+  <h3 class="expand-trigger" onclick="toggle(this)"><span><span class="icon">📐</span> Dose — what the number means</span></h3>
+  <div class="expand-content">
+    <p>CRRT dose = total effluent volume per kilogram per hour (mL/kg/h). Effluent = all the fluid that leaves the circuit (dialysate out + ultrafiltrate + any replacement fluid that passes through the filter).</p>
+    <p style="margin-top:8px"><strong>Prescribed vs delivered:</strong> You prescribe 30 mL/kg/h but the machine doesn't run 100% of the time — filter changes, alarms, transport to CT, etc. Real-world delivery is about 72% of prescribed. So you prescribe higher to deliver 20–25 mL/kg/h, which is the evidence-based target.</p>
+    <p style="margin-top:8px"><strong>Why not just go higher?</strong> Two massive trials (RENAL and ATN, >2,600 patients combined) showed absolutely no benefit from higher doses. More dose = more electrolyte swings, more drug clearance, more circuit problems, same mortality.</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3 class="expand-trigger" onclick="toggle(this)"><span><span class="icon">🩸</span> The CRRT circuit — what goes where</span></h3>
+  <div class="expand-content">
+    <p>Follow the blood path:</p>
+    <ol style="padding-left:18px;margin-top:8px;font-size:13px;color:var(--text2);line-height:2">
+      <li><strong>Vascular catheter</strong> — blood is drawn from the patient</li>
+      <li><strong>Pre-blood pump (pre-BP)</strong> — where Regiocit (citrate) is infused if using citrate anticoagulation</li>
+      <li><strong>Blood pump</strong> — drives flow at 100–250 mL/min (varies by protocol)</li>
+      <li><strong>Pre-filter</strong> — where pre-dilution replacement fluid is added (dilutes blood → protects filter from clotting but reduces clearance efficiency)</li>
+      <li><strong>Filter (haemofilter)</strong> — the actual membrane where clearance happens. M100 or Oxiris in your unit</li>
+      <li><strong>Post-filter</strong> — where post-dilution replacement fluid is added (doesn't dilute blood entering filter → better clearance but higher clotting risk)</li>
+      <li><strong>Return to patient</strong> — where calcium is reinfused (for citrate protocols)</li>
+    </ol>
+    <p style="margin-top:10px;font-size:12px;color:var(--text3)"><strong>Pre vs post dilution:</strong> Pre-dilution = safer filter, less efficient clearance. Post-dilution = more efficient, higher clotting risk. Citrate protocols are mostly post-filter replacement (Biphozyl). No-anticoag protocols use high pre-filter fraction (70/30) to protect the circuit.</p>
+  </div>
+</div>
+
+<div class="card numbers">
+  <h3><span class="icon">📊</span> Numbers you'll hear constantly</h3>
+  <div class="num-grid">
+    <div class="num-item"><div class="val">20–25 mL/kg/h</div><div class="label">Target DELIVERED dose</div></div>
+    <div class="num-item"><div class="val">25–35 mL/kg/h</div><div class="label">Typical PRESCRIBED dose</div></div>
+    <div class="num-item"><div class="val">~72%</div><div class="label">Delivery efficiency factor</div></div>
+    <div class="num-item"><div class="val">150 mL/min</div><div class="label">Blood flow for citrate protocols</div></div>
+    <div class="num-item"><div class="val">200–250 mL/min</div><div class="label">Blood flow for non-citrate</div></div>
+    <div class="num-item"><div class="val">1.0–1.2 mmol/L</div><div class="label">Target ionised calcium (iCa²⁺)</div></div>
+    <div class="num-item"><div class="val">&lt; 2.5</div><div class="label">Total:ionised Ca ratio (normal)</div></div>
+    <div class="num-item"><div class="val">&gt; 2.5</div><div class="label">Total:ionised Ca ratio → citrate toxicity</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 1: INITIATION -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d1">
+<div class="domain-header">
+  <h2>Q1 — RRT initiation & timing</h2>
+  <div class="status status-green">Evidence: Q2.1 complete (HIGH)</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> The core concept: the "sweet spot"</h3>
+  <p>The biggest question in CRRT initiation: start early or wait? The evidence says <strong>neither extreme is best</strong>. There's a sweet spot:</p>
+  <ul style="margin-top:8px">
+    <li><strong>Too early</strong> (STARRT-AKI accelerated arm) — no survival benefit, more harm, more patients on dialysis unnecessarily, higher long-term RRT dependence</li>
+    <li><strong>Just right</strong> (AKIKI standard/delayed arm) — watchful waiting is safe; 35–40% of patients <em>never need RRT at all</em></li>
+    <li><strong>Too late</strong> (AKIKI-2 more-delayed arm) — oliguria >72 hours or BUN >112 → mortality increases (HR 1.65)</li>
+  </ul>
+  <p style="margin-top:10px">The exception: <strong>life-threatening indications always trigger immediate start</strong>. No debate, no waiting. K⁺ ≥6.5, pH <7.15, refractory pulmonary oedema, symptomatic uraemia (encephalopathy, pericarditis).</p>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🧠</span> What the consultant is actually deciding</h3>
+  <p>When there's no single absolute indication, the intensivist is weighing <strong>multiple marginal criteria simultaneously</strong>. This is the hardest reasoning to extract — it's often gestalt. Your probes should try to decompose it:</p>
+  <ul style="margin-top:8px">
+    <li>Is the weighting <strong>additive</strong> (3 moderate things = start) or <strong>hierarchical</strong> (one factor dominates)?</li>
+    <li>What's their <strong>reassessment cadence</strong>? Every 6 hours? Every lab draw? Fixed time?</li>
+    <li>Do they adjust for <strong>diagnosis</strong>? (Septic AKI might get more patience than rhabdomyolysis)</li>
+    <li>How do they identify the patient who will <strong>recover without dialysis</strong>? (Urine output trend? Creatinine trajectory? Furosemide stress test?)</li>
+  </ul>
+</div>
+
+<div class="card trials">
+  <h3><span class="icon">📚</span> Trials they'll reference</h3>
+  <div class="trial-item">
+    <div class="name">STARRT-AKI (NEJM 2020, n=3019)</div>
+    <div class="detail">Accelerated (within 12h of KDIGO 2–3) vs standard (wait for conventional trigger). Multinational RCT.</div>
+    <div class="takeaway">→ No benefit from early start. Accelerated arm had MORE RRT dependence at 90 days (10.4% vs 6.0%).</div>
+  </div>
+  <div class="trial-item">
+    <div class="name">AKIKI (JAMA 2016, n=620)</div>
+    <div class="detail">Early (within 6h of KDIGO 3) vs delayed (wait for absolute indication). French multicenter.</div>
+    <div class="takeaway">→ 49% of delayed arm NEVER received RRT. No mortality difference.</div>
+  </div>
+  <div class="trial-item">
+    <div class="name">AKIKI-2 (Lancet 2021, n=278)</div>
+    <div class="detail">Extended delayed strategy, pushing even further than AKIKI.</div>
+    <div class="takeaway">→ HARMFUL. HR 1.65 for 60-day mortality. Oliguria >72h or BUN >112 = too late.</div>
+  </div>
+  <div class="trial-item">
+    <div class="name">IDEAL-ICU (NEJM 2018, n=488)</div>
+    <div class="detail">Septic shock + RIFLE-F. Early (within 12h) vs delayed (wait 48h).</div>
+    <div class="takeaway">→ Stopped for futility. 38% of delayed arm avoided RRT entirely.</div>
+  </div>
+  <div class="trial-item">
+    <div class="name">ELAIN (JAMA 2016, n=231)</div>
+    <div class="detail">Single-centre, surgical/cardiac ICU, biomarker-enriched (NGAL >150).</div>
+    <div class="takeaway">→ The OUTLIER. Showed benefit from early start — but single-centre, surgical population, not generalizable to medical ICU. Consultants may cite this; know that it's considered an outlier by the field.</div>
+  </div>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"trajectory"</span> or <span class="phrase">"trend"</span> — They're describing how they predict the future. Ask: "What trend specifically tips you over into starting?"</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"additive"</span> or <span class="phrase">"composite"</span> — They're describing how they combine multiple criteria. This is gold for REINA — probe deeper.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"furosemide stress test"</span> — A bolus of furosemide to see if the kidneys respond. If urine output increases, the kidneys may recover. If not, RRT is more likely needed.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"NGAL"</span> or <span class="phrase">"KIM-1"</span> — Biomarkers of kidney injury. Not widely used clinically but some centres use them to predict recovery.</div></div>
+</div>
+
+<div class="card danger">
+  <h3><span class="icon">⚠️</span> Don't confuse these</h3>
+  <ul>
+    <li><strong>AKI stage ≠ RRT indication</strong> — A patient can be KDIGO stage 3 (severe AKI by lab criteria) but not need RRT if they're making urine and electrolytes are stable</li>
+    <li><strong>Oliguria ≠ anuria</strong> — Oliguria (&lt;0.5 mL/kg/h) is concerning but not an absolute indication. Anuria is much more alarming.</li>
+    <li><strong>Rising creatinine ≠ need for dialysis</strong> — Creatinine can rise because GFR dropped from 60 to 40 (not great, not emergency). The rate and context matter.</li>
+  </ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 2: ANTICOAGULATION -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d2">
+<div class="domain-header">
+  <h2>Q2 — Anticoagulation selection</h2>
+  <div class="status status-amber">Evidence: Q3.1–3.5 pending</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> Why does the circuit need anticoagulation?</h3>
+  <p>Blood outside the body activates the clotting cascade. Platelets activate, fibrin forms, and the filter clots. A clotted filter = circuit failure = treatment interruption = wasted blood + lost dose. Anticoagulation keeps the circuit running longer. The choice is between:</p>
+  <ul style="margin-top:8px">
+    <li><strong>Citrate (regional)</strong> — anticoagulates only the circuit, not the patient. Citrate chelates calcium (calcium is essential for clotting), then calcium is replaced after the filter. The patient's systemic clotting is unaffected.</li>
+    <li><strong>Heparin (systemic)</strong> — anticoagulates the patient AND the circuit. Risk: bleeding everywhere, not just in the circuit.</li>
+    <li><strong>None</strong> — no anticoagulation. Shorter circuit life but no anticoag-related risks. Relies on high pre-dilution and blood flow to keep the circuit open.</li>
+  </ul>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🧪</span> Citrate — the details that matter</h3>
+  <p>Citrate is the default because it's <strong>regional</strong> — no systemic bleeding risk. But it has quirks:</p>
+  <ul style="margin-top:8px">
+    <li><strong>Citrate is metabolised by the liver</strong> → If liver failure, citrate accumulates → metabolic acidosis + hypocalcaemia → dangerous. This is the main contraindication.</li>
+    <li><strong>Citrate accumulation detection:</strong> Total calcium rises (citrate-calcium complexes) while ionised calcium drops. The <em>ratio</em> of total:ionised calcium >2.5 signals accumulation.</li>
+    <li><strong>Blood flow is fixed at 150 mL/min for citrate</strong> because the Regiocit dose is flow-dependent. Higher flow = more citrate delivery = more toxicity risk.</li>
+    <li><strong>Citrate adds sodium</strong> — important for hypernatraemic patients. Regiocit contributes a sodium load that can worsen hypernatraemia.</li>
+    <li><strong>Citrate is metabolised to bicarbonate</strong> — it acts as a buffer. This is actually helpful in acidotic patients but can cause alkalosis if not monitored.</li>
+  </ul>
+</div>
+
+<div class="card numbers">
+  <h3><span class="icon">📊</span> Numbers to know for anticoagulation</h3>
+  <div class="num-grid">
+    <div class="num-item"><div class="val">2.5 mmol/L</div><div class="label">Citrate dose target</div></div>
+    <div class="num-item"><div class="val">&gt; 2.5</div><div class="label">Total:ionised Ca ratio = TOXICITY</div></div>
+    <div class="num-item"><div class="val">1.0–1.2 mmol/L</div><div class="label">Target systemic iCa²⁺</div></div>
+    <div class="num-item"><div class="val">0.25–0.35 mmol/L</div><div class="label">Target post-filter iCa²⁺</div></div>
+    <div class="num-item"><div class="val">APTT 1.5–2.0x</div><div class="label">Heparin monitoring target</div></div>
+    <div class="num-item"><div class="val">70/30 or 65/35</div><div class="label">Pre/post dilution split (no anticoag)</div></div>
+  </div>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"calcium gap"</span> or <span class="phrase">"rising total:ionised ratio"</span> — They're describing early citrate accumulation. Ask: "What ratio makes you worried before 2.5?"</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"HIT"</span> — Heparin-Induced Thrombocytopenia. An immune reaction to heparin causing paradoxical clotting. Cannot use heparin. Alternatives: argatroban (direct thrombin inhibitor) or citrate.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"filtration fraction"</span> — The percentage of plasma water removed by the filter. High FF (>25%) means more haemoconcentration → faster clotting. Pre-dilution reduces FF.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"regional vs systemic"</span> — The fundamental distinction. Regional = circuit only. Systemic = whole patient. This is why citrate wins for bleeding patients.</div></div>
+</div>
+
+<div class="card danger">
+  <h3><span class="icon">⚠️</span> Critical correction already in REINA</h3>
+  <ul>
+    <li><strong>High bleeding risk → citrate is APPROPRIATE</strong> (not contraindicated). Citrate is regional — it doesn't make the patient bleed. The original protocol had this wrong.</li>
+    <li><strong>Liver failure → citrate is CONTRAINDICATED</strong> (because liver can't metabolise citrate). This is the real red line, not bleeding.</li>
+    <li><strong>ECMO patients</strong> — already on systemic heparin for the ECMO circuit. Use heparin for CRRT too (they're already anticoagulated systemically). Adding citrate on top is unnecessary complexity.</li>
+  </ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 3: FILTER -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d3">
+<div class="domain-header">
+  <h2>Q3 — Filter selection (Oxiris vs M100)</h2>
+  <div class="status status-red">Evidence: Q5.1 pending (RED)</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> What's the difference?</h3>
+  <p>Your unit has two filters:</p>
+  <ul style="margin-top:8px">
+    <li><strong>M100</strong> — Standard high-flux polysulfone membrane. Does the job for conventional CRRT needs (solute clearance, volume removal). The workhorse.</li>
+    <li><strong>Oxiris</strong> — AN69-based membrane with three layers: (1) a <strong>heparin-grafted surface</strong> (reduces clotting on the membrane), (2) a <strong>polyethylenimine (PEI) layer</strong> that adsorbs endotoxins, and (3) the standard AN69 membrane. It does everything M100 does <em>plus</em> endotoxin/cytokine adsorption.</li>
+  </ul>
+  <p style="margin-top:10px"><strong>Key insight:</strong> Oxiris does <em>not</em> prolong circuit life (Protocol v6 explicitly states this). Its added value is endotoxin removal, primarily in Gram-negative sepsis where lipopolysaccharide (LPS/endotoxin) is driving the inflammatory cascade.</p>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🦠</span> When Oxiris might matter</h3>
+  <p>This is the question REINA currently can't answer — and the reason this interview domain is critical. The evidence base is thin, so you're extracting <strong>expert clinical reasoning</strong>. The logic probably involves:</p>
+  <ul style="margin-top:8px">
+    <li><strong>Source of sepsis</strong> — abdominal (likely Gram-negative) vs pneumonia (often Gram-positive). Endotoxin is a Gram-negative phenomenon.</li>
+    <li><strong>Severity markers</strong> — vasopressor dose, lactate level, trajectory of deterioration</li>
+    <li><strong>Timing</strong> — early in sepsis course (when endotoxin load is highest) vs late</li>
+    <li><strong>Assessment of response</strong> — what does "working" look like? Vasopressor reduction? Lactate clearance? By when?</li>
+  </ul>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"endotoxin activity assay" (EAA)</span> — A blood test measuring endotoxin levels. Some centres use this to decide on Oxiris. Ask if your unit has access.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"gestalt"</span> or <span class="phrase">"clinical picture"</span> — They may not have specific triggers. This is valuable information — it means REINA needs a "consider Oxiris" prompt with clinical context rather than a hard rule.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"vasopressor trajectory"</span> — How they assess whether Oxiris is working. A 20% reduction in noradrenaline over 12 hours? Ask for specifics.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"cost"</span> — Oxiris filters are significantly more expensive than M100. Resource stewardship matters.</div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 4: DOSE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d4">
+<div class="domain-header">
+  <h2>Q4 — Dose deviation</h2>
+  <div class="status status-green">Evidence: Q1.1 + Q1.2 complete (HIGH)</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> The dose question is settled — mostly</h3>
+  <p>This is REINA's strongest evidence domain. Two landmark trials (RENAL + ATN, 2,600+ patients) showed <strong>no benefit from higher doses</strong>. 20–25 mL/kg/h delivered is the ceiling. The residual questions are about <strong>exceptions</strong>:</p>
+  <ul style="margin-top:8px">
+    <li><strong>Obesity</strong> — do you use actual weight (overtreat), adjusted weight, or ideal weight? No consensus.</li>
+    <li><strong>Rhabdomyolysis</strong> — massive myoglobin load. Some clinicians dose higher empirically but there's no RCT supporting this.</li>
+    <li><strong>Tumour lysis syndrome (TLS)</strong> — rapidly rising K⁺, phosphate, urate. May need aggressive clearance.</li>
+    <li><strong>Drug clearance</strong> — CRRT removes water-soluble drugs (many antibiotics). Dose adjustments needed.</li>
+    <li><strong>HVHF in sepsis</strong> — definitively does NOT work. IVOIRE (70 vs 35 mL/kg/h) showed no benefit. Cytokine removal is by adsorption, not convection volume.</li>
+  </ul>
+</div>
+
+<div class="card trials">
+  <h3><span class="icon">📚</span> Trials they'll reference</h3>
+  <div class="trial-item">
+    <div class="name">RENAL (NEJM 2009, n=1508)</div>
+    <div class="detail">40 vs 25 mL/kg/h effluent. 35 Australian/NZ ICUs. Post-dilution CVVHDF.</div>
+    <div class="takeaway">→ 44.7% vs 44.7% mortality. Literally identical. OR 1.00 (CI 0.81–1.23).</div>
+  </div>
+  <div class="trial-item">
+    <div class="name">ATN (NEJM 2008, n=1124)</div>
+    <div class="detail">Intensive (IHD 6x/wk or CVVHDF 35) vs less-intensive (IHD 3x/wk or CVVHDF 20). US VA hospitals.</div>
+    <div class="takeaway">→ 53.6% vs 51.5%. No difference. Higher dose = more electrolyte problems.</div>
+  </div>
+  <div class="trial-item">
+    <div class="name">IVOIRE (ICM 2013, n=~140)</div>
+    <div class="detail">70 vs 35 mL/kg/h CVVH in septic shock patients.</div>
+    <div class="takeaway">→ No survival benefit. Stopped early for slow recruitment. The definitive "no" for HVHF in sepsis.</div>
+  </div>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"adjusted body weight"</span> — Formula: IBW + 0.4 × (actual − IBW). Used in obese patients. Ask at what BMI they switch.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"downtime"</span> — Circuit interruptions. Every hour off CRRT = dose not delivered. This is why prescribed ≠ delivered.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"cytokine clearance"</span> or <span class="phrase">"HVHF"</span> — If they mention pushing dose for sepsis, this is your opportunity to explore how they handle the evidence gap. The evidence says no benefit — does it change their practice?</div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 5: DISCONTINUATION -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d5">
+<div class="domain-header">
+  <h2>Q5 — Discontinuation & step-down</h2>
+  <div class="status status-red">Evidence: Q7.1–7.2 pending (RED)</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> The biggest REINA gap</h3>
+  <p>This domain is <strong>entirely unbuilt</strong> in REINA and there's minimal published evidence. The clinical reasoning you capture here will be REINA's only source of truth. Key concepts:</p>
+  <ul style="margin-top:8px">
+    <li><strong>Renal recovery</strong> — the kidney starts working again. The most reliable signal is <em>spontaneous urine output</em> (kidneys making urine without diuretic support, or responding to furosemide).</li>
+    <li><strong>Trial off</strong> — stopping CRRT temporarily to see if the patient copes. If electrolytes stay stable and urine output is adequate, CRRT might not need to restart.</li>
+    <li><strong>Step-down</strong> — reducing dose, switching to SCUF, or transitioning to intermittent haemodialysis (IHD) as a bridge to stopping completely.</li>
+    <li><strong>IHD transition</strong> — moving from continuous to intermittent (3–4 hours, 3x/week). Requires haemodynamic stability because IHD removes fluid faster.</li>
+  </ul>
+</div>
+
+<div class="card numbers">
+  <h3><span class="icon">📊</span> Numbers you might hear</h3>
+  <div class="num-grid">
+    <div class="num-item"><div class="val">0.5 mL/kg/h</div><div class="label">Common urine output target for trial off</div></div>
+    <div class="num-item"><div class="val">~400–500 mL/day</div><div class="label">Absolute UO some use as threshold</div></div>
+    <div class="num-item"><div class="val">6–24 hours</div><div class="label">Typical trial-off observation window</div></div>
+    <div class="num-item"><div class="val">5–7 days</div><div class="label">Median CRRT duration in ICU</div></div>
+  </div>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"creatinine clearance"</span> — They may use a timed urine collection to estimate residual kidney function before stopping.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"furosemide challenge"</span> — Bolus of furosemide before or during trial-off. If kidneys respond with urine, more confidence they're recovering.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"rebound hyperkalaemia"</span> — K⁺ rising after CRRT stops. The most common reason to restart.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"chronic dialysis"</span> or <span class="phrase">"CKD-5"</span> — The prognostic question. At some point, prolonged CRRT without recovery raises the question of whether this is now permanent kidney failure. Consultants may have a timeframe in mind.</div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 6: MODALITY [NEW] -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d6">
+<div class="domain-header">
+  <h2>Q6 — Modality selection <span style="color:var(--red);font-size:14px">[NEW]</span></h2>
+  <div class="status status-amber">Evidence: Q4.1 pending</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> When does the default change?</h3>
+  <p>REINA defaults to CVVHDF (combination). This domain asks: <strong>when does a consultant specifically override that?</strong> The key reasoning patterns:</p>
+  <ul style="margin-top:8px">
+    <li><strong>CVVHD</strong> chosen when: isolated small-molecule problem (hyperkalaemia, dysnatraemia), pure diffusion gives more predictable correction, circuit simplicity matters</li>
+    <li><strong>CVVH</strong> chosen when: volume removal is the primary goal AND medium-molecule clearance matters (rhabdomyolysis/myoglobin). But caveat: CVVH + citrate has NO dialysate → limited K⁺ clearance</li>
+    <li><strong>SCUF</strong> chosen when: isolated volume overload, no clearance needed at all (e.g., cardiorenal patient needing decongestion only)</li>
+    <li><strong>CVVHDF</strong> remains default when: multiple goals, uncertainty, or "I want to cover everything"</li>
+  </ul>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"it doesn't really matter"</span> — If they say modality choice rarely changes outcomes, that's important data too. It means REINA's default-with-rare-override approach is validated.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"simplicity"</span> or <span class="phrase">"fewer bags"</span> — CVVHD uses only dialysate (no replacement fluid). Simpler circuit, fewer fluid connections. Some prefer it for this reason alone.</div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 7: UF RATE [NEW] -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d7">
+<div class="domain-header">
+  <h2>Q7 — Fluid removal & UF rate <span style="color:var(--red);font-size:14px">[NEW]</span></h2>
+  <div class="status status-red">No evidence query planned</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> UF rate — the daily titration question</h3>
+  <p><strong>Ultrafiltration (UF)</strong> = fluid removal from the patient. This is separate from clearance dose. The UF rate is how fast you're removing water. Typical range: <strong>1.0–1.75 mL/kg/h</strong> (or roughly 50–150 mL/h for an average patient).</p>
+  <p style="margin-top:8px">The dilemma: fluid-overloaded patients need decongestion (lungs wet, oedematous), but removing fluid too fast drops blood pressure. This tension between <strong>decongestion</strong> and <strong>haemodynamic stability</strong> is negotiated multiple times per shift.</p>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">💡</span> Concepts to understand</h3>
+  <ul>
+    <li><strong>Fluid overload %</strong> — (cumulative fluid in − cumulative fluid out) / admission weight × 100. >10% is associated with worse outcomes. Some consultants target a specific % reduction.</li>
+    <li><strong>VExUS</strong> — Venous Excess Ultrasound Score. Uses IVC, hepatic vein, portal vein, and renal vein Doppler to assess venous congestion. Increasingly used to guide fluid removal.</li>
+    <li><strong>Refilling rate</strong> — When you remove intravascular fluid, the interstitial fluid takes time to refill the vessels. If you remove faster than refilling, blood pressure drops. This is why aggressive UF in poorly perfused patients is dangerous.</li>
+    <li><strong>MAP threshold</strong> — Mean Arterial Pressure. Most units have a MAP target (often ≥65 mmHg). Dropping below triggers UF reduction or vasopressor uptitration.</li>
+  </ul>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"net negative"</span> — They're describing the goal of removing more fluid than goes in. "I want this patient 100 mL/h net negative." This is the UF rate minus all infusions.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"back off" or "hold the UF"</span> — They're describing when they pause fluid removal. Ask: "What specifically made you stop — a MAP number, a vasopressor increase, or something else?"</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"B-lines"</span> — Lung ultrasound artefacts indicating pulmonary oedema. More B-lines = more lung water = keep removing fluid.</div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- DOMAIN 8: MONITORING [NEW] -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d8">
+<div class="domain-header">
+  <h2>Q8 — Monitoring & real-time titration <span style="color:var(--red);font-size:14px">[NEW]</span></h2>
+  <div class="status status-amber">Evidence: Q8.1–8.2 pending</div>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">🔬</span> What's being monitored and why</h3>
+  <ul>
+    <li><strong>Ionised calcium (iCa²⁺)</strong> — for citrate patients. Both post-filter (to check circuit anticoagulation is adequate: target 0.25–0.35) and systemic (to check patient isn't hypocalcaemic: target 1.0–1.2). Checked Q4–6H.</li>
+    <li><strong>Total:ionised calcium ratio</strong> — for citrate accumulation detection. Normally <2.5. A rising ratio with dropping ionised calcium = citrate building up = liver can't metabolise it fast enough.</li>
+    <li><strong>Electrolytes (K⁺, Na⁺, Mg²⁺, PO₄³⁻)</strong> — CRRT strips these. Checked Q4–6H. Magnesium and phosphate particularly vulnerable.</li>
+    <li><strong>Blood gas (pH, lactate, HCO₃⁻)</strong> — acid-base status. Citrate metabolism produces bicarbonate; if liver fails, both acidosis (from accumulated citrate) and alkalosis (from unmeasured bicarbonate) can occur.</li>
+    <li><strong>Circuit pressures</strong> — access pressure (too negative = catheter suctioning), filter pressure, return pressure, transmembrane pressure (TMP). Rising pressures signal clotting.</li>
+  </ul>
+</div>
+
+<div class="card concept">
+  <h3><span class="icon">📈</span> What "pattern recognition" means here</h3>
+  <p>This domain is about <strong>trend reading</strong> — seeing the problem 2–4 hours before the alarm fires. You're asking consultants to articulate their intuition. Examples:</p>
+  <ul style="margin-top:8px">
+    <li>"The iCa²⁺ dropped from 1.15 to 1.05 over two draws — it's not below range yet, but the slope concerns me."</li>
+    <li>"Access pressure went from −80 to −120 over 6 hours — the catheter is starting to malposition or there's thrombus forming."</li>
+    <li>"Potassium keeps swinging despite a stable prescription — there's something else going on (rhabdomyolysis release? cell lysis? insulin timing?)."</li>
+  </ul>
+</div>
+
+<div class="card listen">
+  <h3><span class="icon">👂</span> Listen for these phrases</h3>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"the slope"</span> or <span class="phrase">"the trend"</span> — They're describing rate of change as more important than absolute values. This is exactly what REINA needs — trend-based alerts, not just threshold-based.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"TMP"</span> — Transmembrane pressure. Rising TMP = membrane is clogging. The earliest clotting signal on the machine.</div></div>
+  <div class="listen-item"><div class="ear">👂</div><div><span class="phrase">"proactive change"</span> vs <span class="phrase">"reactive"</span> — Do they change circuits at 24h prophylactically or wait until it alarms? This reveals their monitoring philosophy.</div></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- QUICK REFERENCE -->
+<!-- ═══════════════════════════════════════ -->
+<div class="domain" id="d9">
+<div class="domain-header">
+  <h2>Quick reference — glossary & abbreviations</h2>
+</div>
+
+<div class="card">
+  <h3><span class="icon">📖</span> Abbreviations you'll hear</h3>
+  <div class="qr-grid" style="margin-top:10px">
+    <dt>AKI</dt><dd>Acute Kidney Injury (KDIGO stages 1–3)</dd>
+    <dt>KDIGO</dt><dd>Kidney Disease: Improving Global Outcomes (staging system for AKI)</dd>
+    <dt>RRT</dt><dd>Renal Replacement Therapy (all dialysis types)</dd>
+    <dt>CRRT</dt><dd>Continuous RRT (24h/day ICU version)</dd>
+    <dt>IHD</dt><dd>Intermittent Haemodialysis (3–4h sessions)</dd>
+    <dt>SLED</dt><dd>Slow Low-Efficiency Dialysis (hybrid of CRRT and IHD)</dd>
+    <dt>RCA</dt><dd>Regional Citrate Anticoagulation</dd>
+    <dt>HIT</dt><dd>Heparin-Induced Thrombocytopenia</dd>
+    <dt>UF</dt><dd>Ultrafiltration (fluid removal)</dd>
+    <dt>FF</dt><dd>Filtration Fraction (plasma water removed / plasma flow)</dd>
+    <dt>TMP</dt><dd>Transmembrane Pressure</dd>
+    <dt>BUN</dt><dd>Blood Urea Nitrogen</dd>
+    <dt>HVHF</dt><dd>High-Volume Haemofiltration (>35 mL/kg/h — doesn't work)</dd>
+    <dt>EAA</dt><dd>Endotoxin Activity Assay</dd>
+    <dt>MAP</dt><dd>Mean Arterial Pressure (target ≥65 mmHg)</dd>
+    <dt>VExUS</dt><dd>Venous Excess Ultrasound Score</dd>
+    <dt>iCa²⁺</dt><dd>Ionised calcium</dd>
+    <dt>APTT</dt><dd>Activated Partial Thromboplastin Time (heparin monitoring)</dd>
+    <dt>CKD</dt><dd>Chronic Kidney Disease</dd>
+    <dt>TLS</dt><dd>Tumour Lysis Syndrome</dd>
+    <dt>NGAL</dt><dd>Neutrophil Gelatinase-Associated Lipocalin (AKI biomarker)</dd>
+    <dt>Qb</dt><dd>Blood flow rate (mL/min)</dd>
+    <dt>Qd</dt><dd>Dialysate flow rate (mL/hr)</dd>
+    <dt>Qr</dt><dd>Replacement fluid flow rate (mL/hr)</dd>
+    <dt>ECMO</dt><dd>Extracorporeal Membrane Oxygenation</dd>
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="icon">⚡</span> The five absolute (emergency) indications</h3>
+  <p style="margin-top:4px;font-size:13px">These always trigger <strong>immediate</strong> RRT start — no debate, no waiting:</p>
+  <ol style="padding-left:18px;margin-top:8px;font-size:13.5px;line-height:2">
+    <li><strong>Refractory hyperkalaemia</strong> — K⁺ ≥6.5 mmol/L unresponsive to medical management</li>
+    <li><strong>Severe metabolic acidosis</strong> — pH <7.15 not correctable by treating the cause</li>
+    <li><strong>Refractory pulmonary oedema</strong> — fluid overload causing respiratory failure, unresponsive to diuretics</li>
+    <li><strong>Symptomatic uraemia</strong> — encephalopathy, pericarditis, uraemic bleeding</li>
+    <li><strong>Dialysable toxin ingestion</strong> — poisoning with a substance CRRT can remove (methanol, ethylene glycol, lithium, salicylates — check EXTRIP guidelines)</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3 class="expand-trigger" onclick="toggle(this)"><span><span class="icon">🧮</span> GOLDMARK mnemonic for metabolic acidosis</span></h3>
+  <div class="expand-content">
+    <p>When a consultant mentions GOLDMARK, they're systematically working through causes of high anion gap metabolic acidosis:</p>
+    <ul style="margin-top:8px">
+      <li><strong>G</strong>lycols (ethylene glycol, propylene glycol)</li>
+      <li><strong>O</strong>xoproline (paracetamol metabolite)</li>
+      <li><strong>L</strong>-lactate (sepsis, shock, hypoperfusion)</li>
+      <li><strong>D</strong>-lactate (short bowel syndrome)</li>
+      <li><strong>M</strong>ethanol</li>
+      <li><strong>A</strong>spirin (salicylates)</li>
+      <li><strong>R</strong>enal failure (uraemic acidosis)</li>
+      <li><strong>K</strong>etoacidosis (DKA, starvation, alcoholic)</li>
+    </ul>
+    <p style="margin-top:8px;font-size:12px;color:var(--text3)">The key insight for CRRT: lactic acidosis from septic shock needs source treatment (antibiotics, fluids, vasopressors), not CRRT. Ketoacidosis needs insulin, not CRRT. CRRT is only appropriate for acidosis where the kidneys ARE the problem or where a dialysable toxin is the cause.</p>
+  </div>
+</div>
+
+</div>
+
+</div><!-- /.container -->
+
+<script>
+const domains = [
+  { id: 'd0', label: 'Foundations' },
+  { id: 'd1', label: 'Q1 Initiation' },
+  { id: 'd2', label: 'Q2 Anticoag' },
+  { id: 'd3', label: 'Q3 Filter' },
+  { id: 'd4', label: 'Q4 Dose' },
+  { id: 'd5', label: 'Q5 Discontinuation' },
+  { id: 'd6', label: 'Q6 Modality', isNew: true },
+  { id: 'd7', label: 'Q7 UF Rate', isNew: true },
+  { id: 'd8', label: 'Q8 Monitoring', isNew: true },
+  { id: 'd9', label: 'Glossary' },
+];
+
+const nav = document.getElementById('nav');
+domains.forEach((d, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'nav-btn' + (i === 0 ? ' active' : '');
+  btn.innerHTML = d.label + (d.isNew ? '<span class="new-tag">NEW</span>' : '');
+  btn.onclick = () => {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.domain').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(d.id).classList.add('active');
+    window.scrollTo({ top: document.getElementById(d.id).offsetTop - 80, behavior: 'smooth' });
+  };
+  nav.appendChild(btn);
+});
+document.getElementById('d0').classList.add('active');
+
+function toggle(el) {
+  el.classList.toggle('open');
+  const content = el.nextElementSibling;
+  content.classList.toggle('open');
+}
+</script>
+</body>
+</html>
